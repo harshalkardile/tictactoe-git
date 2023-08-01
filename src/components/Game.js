@@ -1,6 +1,7 @@
-import React, { useState } from "react";
-import Board from "./Board";
-import { calculateWinner } from "../helpers";
+import React, { useState } from 'react';
+import { calculateWinner } from '../helpers';
+import Board from './Board';
+
 
 const styles={
     width:'200px',
@@ -18,7 +19,7 @@ const Game = () => {
         const boardCopy =[...board];
         if(winner || boardCopy[i]) return;
         
-        boardCopy[i]= xIsNext ? 'X' : 'O';
+        boardCopy[i] = xIsNext ? 'X' : 'O';
         setBoard(boardCopy);
         setXisNext(!xIsNext);   
     }
@@ -40,7 +41,7 @@ const Game = () => {
                 <p>{winner ? 'Winner: ' + winner : 'Next Player: '+ (xIsNext ? 'X' : 'O')}</p>
                 {renderMoves()}
             </div>
-            </>  
+            </>   
         )
     }
 export default Game;
