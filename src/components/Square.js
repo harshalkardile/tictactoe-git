@@ -3,7 +3,7 @@ import React from "react";
 
 const style = {
 
-    background:'orange',
+    background:'white',
     border:'2px solid black',
     fontSize: '15px',
     fontWeight: '500',
