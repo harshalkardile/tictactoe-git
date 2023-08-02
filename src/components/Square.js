@@ -5,9 +5,10 @@ const style = {
 
     background:'white',
     border:'2px solid black',
-    fontSize: '15px',
-    fontWeight: '500',
+    fontSize: '25px',
+    fontWeight: '800',
     cursor: 'pointer',
+    FontFace: 'arial',
     outline: 'none'
 }
 
