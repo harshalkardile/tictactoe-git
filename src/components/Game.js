@@ -14,10 +14,9 @@ const Game = () => {
     const [history, setHistory] = useState([Array(9).fill(null)]);
     const [stepNumber, setStepNumber] = useState(0);
     const [xIsNext, setXisNext] = useState(true);
-    const [gameInProgress, setGameInProgress] = useState(true);
+    
     const winner = calculateWinner(history[stepNumber]);
 
-     
     const handleClick = i => {
         const timeInHistory = history.slice(0, stepNumber + 1);
         const current = timeInHistory[stepNumber];
@@ -45,7 +44,6 @@ const Game = () => {
         setHistory([Array(9).fill(null)]);
         setStepNumber(0);
         setXisNext(true);
-        setGameInProgress(true);
       };
 
     const renderMoves = () => (
@@ -73,11 +71,9 @@ const Game = () => {
                 )}
             </p>
             <p>
-                {gameInProgress ? (
-                <button onClick={restartGame}>Restart</button>
-                ) : (
-                <button onClick={() => setGameInProgress(true)}>Start New Game</button>
-                )}
+            {winner && (
+          <button onClick={restartGame}>Restart</button>
+        )}
             </p>
             {renderMoves()}
         </div>
