@@ -34,7 +34,6 @@ const Game = () => {
         return squares.every(square => square !== null);
       };
       
-
     const jumpTo = move => {
             setStepNumber(move);
             setXisNext(move === 0)
@@ -44,7 +43,7 @@ const Game = () => {
             setHistory([Array(9).fill(null)]);
             setStepNumber(0);
             setXisNext(true);
-      };
+    };
 
     const renderMoves = () => (
             history.map((_step, move) => {
@@ -62,18 +61,16 @@ const Game = () => {
             < Board squares={history[stepNumber]} onClick = {handleClick} /> 
             <div style={ styles }>
                 <p>
-                    {winner ? (
-                        <p>Winner: {winner}</p>
-                    ) : checkForTie(history[stepNumber]) ? (
-                        <p>It's a tie!</p>
-                    ) : (
-                        <p>Next Player: {xIsNext ? 'X' : 'O'}</p>
-                    )}
+                    {winner ? ( <p>Winner: {winner}</p>) 
+                    : checkForTie(history[stepNumber]) 
+                    ? ( <p>It's a tie!</p>) 
+                    : ( <p>Next Player: {xIsNext ? 'X' : 'O'}</p>)}
                 </p>
                 <p>
-                    {winner && (
+                    {(winner || checkForTie(history[stepNumber])) && (
                         <button onClick={restartGame}>Restart</button>
                 )}
+                
                 </p>
                 {renderMoves()}
             </div>
